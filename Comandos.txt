@@ -1,0 +1,59 @@
+-----------------------------------
+COMANDOS DO BASIC 1.0
+-----------------------------------
+
+SCREEN X, Y
+=====================================================================
+Define o modo te tela, onde X deve ter valor entre 0 e 3, sendo:
+0: modo texto 40 colunas e 20 linhas
+1: modo texto 32 colunas e 24 linhas
+2: modo gráfico alta resolução
+3: modo gráfico baixa resolução
+
+Y define a dimensão dos sprites, onde
+0: sprites 8x8
+1: sprites 8x8 aumentados
+2: sprites 16x16
+3: sprites 16x16 aumentados
+
+SPRITE$(X)
+=====================================================================
+Define um sprite na memória.
+X pode ser entre 0 e 255
+SPRITE$(0) = S$
+onde, S$ é uma cadeia de strings
+Binário:        S$ = S$ + CHR$(VAL("&B" + B$))
+Hexadecimal:    S$ = S$ + CHR$(VAL("&H" + B$))
+Decimal:        S$ = S$ + CHR$(B)
+
+PUT SPRITE z, STEP(x,y), xx, yy
+=====================================================================
+Exibe um sprite na tela onde,
+z: plano de exibição, entre 0 e 31.
+x: posição horizontal, entre -32 e 255.
+y: posição vertical, entre -32 e 191.
+STEP, se usado, as posições x e y poderão ser negativos.
+xx: cor do sprite, entre 0 e 15
+yy: número do sprite definido no comando SPRITE$(X)
+
+STICK(x)
+=====================================================================
+Evento do movimento do joystick ou teclado, onde x pode ser:
+0: setas do teclado
+1: joystick 1
+2: joystick 2 
+A = STICK(0)
+Posições: 
+0: neutro
+1: norte    2: nordeste
+3: leste    4: sudeste
+5: sul      6: sudoeste
+7: oeste    8: noroeste
+
+STRIG(x)
+=====================================================================
+Evento do botão de disparo do joystick ou teclado, onde x pode ser:
+0: barra de espaço do teclado.
+1 ou 3: botão do joystick 1.
+2 ou 4: botão do joystick 2.
+Quando pressionado, assume o valor de -1, caso contrário, o valor é 0.
