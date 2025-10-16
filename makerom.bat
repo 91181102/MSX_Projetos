@@ -1,7 +1,7 @@
 @echo off
 title Criando Rom MSX...
 set OPENMSX_PATH="C:\git\msx_projetos\msxbas2rom\msxbas2rom.exe"
-set BASFILE="C:\git\msx_projetos\bbaby.bas"
+set BASFILE="C:\git\msx_projetos\ass_teste.bas"
 
 echo ========================================
 echo Iniciando o MSXBas2Rom com %BASFILE%

@@ -1,7 +1,7 @@
 @echo off
 title Iniciando MSX...
 set OPENMSX_PATH="C:\Program Files\openMSX\openmsx.exe"
-set ROM_PATH="C:\git\msx_projetos\bbaby.rom"
+set ROM_PATH="C:\git\msx_projetos\ass_teste.rom"
 set MACHINE="Gradiente_Expert_XP-800"
 
 echo ========================================
