@@ -30,13 +30,14 @@
 3201 TB = 22: Y = ((BY - 3) * 8) - 1: X = BX * 8
 3205 FOR G = 0 TO 1
 3206    FOR F = 1 TO 4 
+3207        SPRITE OFF
 3210        PUT SPRITE 0,(X + F, Y), 1, TB
 3220        PUT SPRITE 1,(X + F + 8, Y), 1, TB + 1
 3230        PUT SPRITE 2,(X + F, Y + 16), 1, TB + 2
 3240        PUT SPRITE 3,(X + F + 8, Y + 16), 1, TB + 3
 3250        PUT SPRITE 4,(X + F, Y + 16), 9, TB + 4
 3260        PUT SPRITE 5,(X + F + 8, Y + 16), 9, TB + 5
-3265    NEXT F 
+3265    SPRITE ON: NEXT F 
 3266    X = X + 4
 3270    IF TB = 22 THEN TB = 16 ELSE IF TB = 16 THEN TB = 22
 3280 NEXT G: BX = BX + 1
@@ -47,12 +48,14 @@
 3310 TB = 34: Y = ((BY - 3) * 8) - 1: X = BX * 8
 3320 FOR G = 0 TO 1
 3330    FOR F = 4 TO 1 STEP - 1 
+3335        SPRITE OFF
 3340        PUT SPRITE 0,(X + F, Y), 1, TB
 3350        PUT SPRITE 1,(X + F + 8, Y), 1, TB + 1
 3360        PUT SPRITE 2,(X + F, Y + 16), 1, TB + 2
 3370        PUT SPRITE 3,(X + F + 8, Y + 16), 1, TB + 3
 3380        PUT SPRITE 4,(X + F, Y + 16), 9, TB + 4
 3390        PUT SPRITE 5,(X + F + 8, Y + 16), 9, TB + 5
+3395        SPRITE ON
 3400    NEXT F 
 3410    X = X - 4
 3420    IF TB = 34 THEN TB = 28 ELSE IF TB = 28 THEN TB = 34
@@ -64,12 +67,14 @@
 3460 TB = 40: Y = ((BY - 3) * 8) - 1: X = BX * 8
 3470 FOR G = 8 TO 1 STEP - 1
 3480    FOR F = 4 TO 1 STEP -1 
+3485        SPRITE OFF
 3490        PUT SPRITE 0,(X, Y), 1, TB
 3500        PUT SPRITE 1,(X + 8, Y), 1, TB + 1
 3510        PUT SPRITE 2,(X, Y + 16), 1, TB + 2
 3520        PUT SPRITE 3,(X + 8, Y + 16), 1, TB + 3
 3530        PUT SPRITE 4,(X, Y + 16), 9, TB + 4
 3540        PUT SPRITE 5,(X + 8, Y + 16), 9, TB + 5
+3545        SPRITE ON
 3550    NEXT F 
 3560    Y = Y - 6
 3570    IF TB = 40 THEN TB = 46 ELSE IF TB = 46 THEN TB = 40
@@ -80,12 +85,14 @@
 3610 TB = 40: Y = ((BY - 3) * 8) - 1: X = BX * 8
 3620 FOR G = 1 TO 8 
 3630    FOR F = 1 TO 4
+3635        SPRITE OFF
 3640        PUT SPRITE 0,(X, Y), 1, TB
 3650        PUT SPRITE 1,(X + 8, Y), 1, TB + 1
 3660        PUT SPRITE 2,(X, Y + 16), 1, TB + 2
 3670        PUT SPRITE 3,(X + 8, Y + 16), 1, TB + 3
 3680        PUT SPRITE 4,(X, Y + 16), 9, TB + 4
 3690        PUT SPRITE 5,(X + 8, Y + 16), 9, TB + 5
+3695        SPRITE ON
 3700    NEXT F 
 3710    Y = Y + 6
 3720    IF TB = 40 THEN TB = 46 ELSE IF TB = 46 THEN TB = 40
@@ -112,7 +119,7 @@
 4210 IF GX < BX - 3 THEN TT = 1: TR = 0 ELSE IF GX > BX + 3 THEN TT = -1: TR = 8
 4220 IF GY > 20 THEN LY = -1 ELSE IF GY < 2 THEN LY = 1
 4230 'IF STICK(0) = 0 THEN FOR F = 1 TO 1000: NEXT
-4240 'FOR F = 1 TO 8 STEP 2
+4240 SPRITE OFF: 'FOR F = 1 TO 8 STEP 2
 4250    PUT SPRITE 10,(XX, YY), 1, TR
 4260    PUT SPRITE 11,(XX + 8, YY), 1, TR + 1
 4270    PUT SPRITE 12,(XX, YY + 16), 1, TR + 2
@@ -122,7 +129,7 @@
 4310    PUT SPRITE  8,(XX, YY + 16), 2, TR + 6
 4320    PUT SPRITE  9,(XX + 8, YY + 16), 2, TR + 7
 4330    GX = GX + TT: GY = GY + LY
-4340 'NEXT F: 
+4340 SPRITE ON: 'NEXT F: 
 4350 RETURN
 
 
@@ -134,7 +141,7 @@
 5050 IF FO = 6 THEN GOSUB 9200
 5060 GG = GG + 1 : IF GG = 2 THEN GG = 0: GOSUB 4200
 5065 LOCATE 0, 2: PRINT "GX"; GX; "BX"; BX; "GY"; GY; "BY"; BY
-5066 IF (GX >= BX AND GX < BX + 1) AND (GY = BY - 1) THEN LI = LI - 1: Z$ = INPUT$(1): GOSUB 9400
+5066 'IF (GX >= BX AND GX < BX + 1) AND (GY = BY - 1) THEN LI = LI - 1: Z$ = INPUT$(1): GOSUB 9400
 5070 GOTO 5020
 
 5100 ' MOVIMENTO PARA DIREITA
